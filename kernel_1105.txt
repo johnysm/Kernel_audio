@@ -1,0 +1,13 @@
+<14>[ 2684.190429] init: Clear action queue and start shutdown trigger
+<14>[ 2684.190873] init: Reboot start, reason: reboot,, rebootTarget: 
+<4>[ 2684.207314] HwBinder:684_1: 3 output lines suppressed due to ratelimiting
+<14>[ 2684.211993] init: Successfully killed process cgroup uid 0 pid 684 in 6ms
+<14>[ 2684.212341] init: Sending signal 9 to service 'qcomsysd' (pid 957) process group...
+<14>[ 2684.229160] init: Successfully killed process cgroup uid 1000 pid 959 in 11ms
+<4>[ 2684.374621] QSEECOM: qseecom_unload_app: App id 3 now unloaded
+<4>[ 2684.375381] QSEECOM: qseecom_unload_app: App id 2 now unloaded
+<6>[ 2684.391028] ipa-wan ipa3_ssr_notifier_cb:2693 IPA received MPSS BEFORE_SHUTDOWN
+<6>[ 2684.630882] 'closed /dev/adsprpc-smd c 224 0'
+<4>[ 2684.670767] pil-q6v5-mss 4080000.qcom,mss: Port 0000000000000000 halt timeout
+<6>[ 2685.060748] binder: release 1234:1315 transaction 38446 out, still active
+<6>[ 2685.060751] binder: undelivered TRANSACTION_COMPLETE
