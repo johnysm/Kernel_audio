@@ -1,0 +1,34 @@
+Record the AudioPolicy initialization process.:
+
+1. at boot time create audio policy service instance (frameworks\av\media\audioserver\main_audioserver.cpp)
+2. frameworks\av\services\audiopolicy\service\AudioPolicyService.cpp
+ AudioPolicyService::onFirstRef(): 
+ create audiocommandThread for tone playback thread
+ create audiocommandThread for audio command thread
+ create audiocommandThread for output activity command thread 
+ 
+ create audio policy manager 
+ Load the sound effect file
+ 
+ 
+ 3. Load sound effects :
+ AudioPolicyEffects::AudioPolicyEffects() in this function load audio effects
+ 
+ 4.Initialization mainly reads the xml file, and obtains the supported device type, sampling rate and other parameters.
+ frameworks\av\services\audiopolicy\managerdefault\AudioPolicyManager.cpp
+ 
+ Parse the file audio_policy_configuration.xml
+ load config file vendor or system config file
+ 
+ Once policy config has been parsed, retrieve an instance of the engine and initialize it.
+  mAvailableOutputDevices and mAvailableInputDevices now contain all attached devices
+  open all output streams needed to access attached devices
+  
+5. open all output streams needed to access attached devices(AudioPolicyManager.cpp->AudioFlinger.cpp->audio_hw.c)
+   except for direct output streams that are only opened when they are actually required by an app.
+    This also validates mAvailableOutputDevices list
+	
+6. open input streams needed to access attached devices to validate mAvailableInputDevices list
+chose first device present in mSupportedDevices also part of inputDeviceTypes
+  mpClientInterface->openInput->AudioFlinger::openInput->AudioFlinger::openInput_l->adev_open_input_stream;
+  (AudioPolicyManager.cpp->AudioPolicyClientImpl.cpp->AudioFlinger.cpp->audio_hw.c)
